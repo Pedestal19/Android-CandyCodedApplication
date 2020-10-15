@@ -11,6 +11,9 @@ import com.squareup.picasso.Picasso;
 
 public class InfoActivity extends AppCompatActivity {
 
+    String storePhone = "tel:0123456789";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,5 +50,23 @@ public class InfoActivity extends AppCompatActivity {
         if(mapIntent.resolveActivity(getPackageManager()) != null){
             startActivity(mapIntent);
         }
+    }
+
+//    public void createPhoneIntent(View view){
+//        Uri uri =  Uri.parse("tel:012345678");
+//
+//        Intent phone_intent_set_data = new Intent(Intent.ACTION_DIAL);
+//        phone_intent_set_data.setData(Uri.parse("tel:012345678"));
+//        startActivity(phone_intent_set_data);
+//
+//
+//
+//    }
+
+    public void createPhoneIntent(View view){
+        Intent phoneIntent = new Intent(Intent.ACTION_DIAL);
+        Uri phoneUri = Uri.parse(storePhone);
+        phoneIntent.setData(phoneUri);
+        startActivity(phoneIntent);
     }
 }
